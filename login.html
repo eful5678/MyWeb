@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script>
+            function emptyCheck(){
+                var idEmpty = document.getElementById('id');
+                if(idEmpty.value == ""){
+                    alert('please input id');
+                    return;
+                }
+            }
+        </script>
+    </head>
+    <header>
+        <a href="index.html">main</a>
+        <a href="login.html">login</a>
+    </header>
+    <body>
+        <h1>Login</h1>
+        <form>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <th>PWD</th>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button"value="login" onclick="emptyCheck()"></td>
+                </tr>
+            </table>
+
+        </form>
+    </body>
+</html>
