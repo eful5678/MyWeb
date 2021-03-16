@@ -22,12 +22,7 @@
 <header include-html="/html/header.html"></header>
 
 <!-- section left -->
-
-<div id="container">
-	<div id="leftbar" include-html="/html/leftbar.html"></div>
-	
-</div>
-
+<section include-html="html/leftbar.html">	</section>
 <!-- footer -->
 <footer include-html="html/footer.html"></footer>
 <script>
