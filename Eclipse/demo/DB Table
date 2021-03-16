@@ -1,0 +1,8 @@
+/*
+****Member Table****
+*/
+DROP TABLE my_member;
+CREATE TABLE my_member(
+    id VARCHAR2(20) PRIMARY KEY,
+    password VARCHAR2(30) NOT NULL);
+

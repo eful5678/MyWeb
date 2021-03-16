@@ -31,3 +31,11 @@ function includeHTML(){
 		}
 	}
 };
+
+function join(){
+	fjoin.submit();
+}
+
+function login(){
+	flogin.submit();
+}

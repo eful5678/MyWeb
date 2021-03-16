@@ -25,66 +25,28 @@
 <div id="container">
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
-	<form>
-		<div id="container" class="container" >
-			<div class="input-group mb-3">
+	<form name="flogin" method="GET" action="${pageContext.request.contextPath }/member/login">
+			<div class="col-md-6">
+				<label for="id" class="form-label">ID</label>
  				<input type="text" class="form-control" name="id" id="id" placeholder="id를 입력해주세요" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
-  				<button type="button" id="idCheck" class="btn-danger btn-primary btn">id중복확인</button>
 			</div>
-		</div>
+			<div class="col-md-6">
+				<label for="password" class="form-label">Password</label>
+ 				<input type="password" class="form-control" name="password" id="password" placeholder="******" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
+			</div>
+			<div>
+				<button id="login" class="btn-danger btn-primary btn" onclick="login()">로그인</button>
+				<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
+			</div>
 	</form>
-</div>
-	
-</div>
-<!-- section left -->
-<section include-html="/html/leftbar.html">	</section>
+	</div>
+	</div>
 
 
 
 
 
-<div id="form">
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
 
-<div class="card card-outline-secondary my-4">
-     
-          <div class="card-header">
-            
-
-			adfadf
-
-        </div>
-        
-        
-        </div>
-        
-        <div id="layout" class="container-fluid vertical-center justify-content-center">
-			
-				<form name="f" method="POST" action="${pageContext.request.contextPath }/member/join">
-			<div id="container" class="container border border-danger" >
-		<h6>아이디</h6>
-			<div class="input-group mb-3">
- 				<input type="text" class="form-control" name="id" id="id" placeholder="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
-  				<button type="button" id="idCheck" class="btn-danger btn-primary btn">id중복확인</button>
-			</div>
-			</div>
-			
 
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>

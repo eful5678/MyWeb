@@ -24,17 +24,33 @@
 <div id="container">
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
-	<form>
-		<div id="container" class="container" >
-			<div class="input-group mb-3">
+	<form name="fjoin" method="POST" action="${pageContext.request.contextPath }/member/join">
+			<div class="col-md-6">
+				<label for="id" class="form-label">ID</label>
  				<input type="text" class="form-control" name="id" id="id" placeholder="id를 입력해주세요" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
-  				<button type="button" id="idCheck" class="btn-danger btn-primary btn">id중복확인</button>
 			</div>
+
+			<div class="col-md-6">
+				<label for="password" class="form-lable">Password</label>
+				<input type="password" class="form-control" name="password" id="password" placeholder="******">
+			
+			</div>
+			<div class="col-md-6">
+				<label for="passwordCheck" class="form-lable">Password Check</label>
+				<input type="password" class="form-control" name="passwordCheck" id="passwordCheck" placeholder="******">
+			
+			</div>
+			<div class="col-12">
+   				 <label for="inputAddress" class="form-label">Address</label>
+   				 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+ 			</div>
 			<div>
-				<button type="button" id="join" class="btn-danger btn-primary btn">회원가입</button>
+				<button id="join" class="btn-danger btn-primary btn" onclick="join()">회원가입</button>
 				<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
 			</div>
-		</div>
+			
+			
+	
 		
 	</form>
 	
@@ -44,5 +60,6 @@
 <script>
 includeHTML();
 </script>
+<script src="/js/js.js"></script>
 </body>
 </html>
