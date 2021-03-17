@@ -39,3 +39,15 @@ function join(){
 function login(){
 	flogin.submit();
 }
+
+function moveWrite(){
+	location.href="/board/boardForm";
+}
+
+function write(){
+	freeboard1.submit();
+}
+
+function editBoard(){
+	editBoard.submit();
+}

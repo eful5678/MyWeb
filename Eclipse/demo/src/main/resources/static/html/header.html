@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+	var loginStatus = document.getElementById("session");
+	console.log(loginStatus);
+</script>
+<body>
+<h1 class="text-danger"><a href="/">ì£¼ì œë„ ëª¨ë¥´ëŠ” ì‚¬ì´íŠ¸</a></h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">HOME</a>
@@ -29,7 +39,10 @@
       </ul>
       <div>
       	<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      		<!-- c if ·Î session id ¿©ºÎ¿¡ µû¶ó ·Î±×ÀÎ/·Î±×¾Æ¿ôÀ¸·Î ÀüÈ¯ÇÏ±â -->
+      		<!-- c if ë¡œ session id ì—¬ë¶€ì— ë”°ë¼ ë¡œê·¸ì¸/ë¡œê·¸ì•„ì›ƒìœ¼ë¡œ ì „í™˜í•˜ê¸° -->
+      		<li class="nav-item">
+      			${sessionScope.id}
+      		</li>
       		<li class="nav-item">
          		 <a class="nav-link active" aria-current="page" href="/member/loginForm">Login</a>
 			</li>
@@ -46,3 +59,6 @@
     </div>
   </div>
 </nav>
+<input type="hidden" id="session" value="${sessionScope.id}">
+</body>
+</html>
