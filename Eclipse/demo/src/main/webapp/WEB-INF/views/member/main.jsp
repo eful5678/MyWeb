@@ -17,18 +17,15 @@
 <title>Hello, world!</title>
 </head>
 <body>
-
 <!-- header -->
-<header include-html="/html/header.html"></header>
-<c:if test="${empty sessionScope.id }">
-로그인 합시다.
-</c:if>
-<c:if test="${not empty sessionScope.id }">
-${sessionScope.id }님 환영합니다.
-</c:if>
+<header><c:import url="../header.jsp"></c:import></header>
+
 <!-- section left -->
 <div id="container">
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
+	<div id="form" class="container-fluid vertical-center justify-content-center">
+	아직 뭘해야 할지 모르겠습니다. 오늘은 회원정보 수정기능을 구현했씁니다.
+	</div>
 </div>
 
 <!-- footer -->

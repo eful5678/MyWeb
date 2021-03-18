@@ -33,11 +33,29 @@ function includeHTML(){
 };
 
 function join(){
+	alert("join?");
 	fjoin.submit();
 }
 
 function login(){
+	alert("login?");
+	var login_id = document.getElementById("id");
+	var login_pwd = document.getElementById("password");
+	console.log("id : " + login_id.value);
+	console.log("pwd : " + login_pwd.value);
+	if(login_id.value == ""){
+		alert("아이디를 입력해주세요");
+		return;
+	}
+	if(login_pwd.value == ""){
+		alert("비밀번호를 입력해주세요");
+		return;
+	}
 	flogin.submit();
+}
+
+function fedit(){
+	fedit.submit();
 }
 
 function moveWrite(){

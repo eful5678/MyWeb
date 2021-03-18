@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemberController {
@@ -18,6 +20,20 @@ public class MemberController {
 	@RequestMapping("/")
 	public String main() {
 		return "/member/main";	
+	}
+	
+	@GetMapping("/member/joinForm")
+	public String joinForm() {
+		return "/member/join";
+	}
+	
+	@PostMapping("/member/join")
+	public String join(Member m) {
+		System.out.println("MemberController.join()");
+		System.out.println("회원가입 정보 : " + m);
+		mservice.addMember(m);
+		
+		return "redirect:/";
 	}
 	
 	@GetMapping("/member/loginForm")
@@ -40,14 +56,38 @@ public class MemberController {
 		}
 	}
 	
-	@GetMapping("/member/joinForm")
-	public String joinForm() {
-		return "/member/join";
+	@GetMapping("/member/logout")
+	public String logout(HttpServletRequest req) {
+		System.out.println("MemberController.logout()");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		session.removeAttribute("id");
+		session.invalidate();
+		
+		return "redirect:/";
 	}
 	
-	@PostMapping("/member/join")
-	public String join(Member m) {
-		mservice.addMember(m);
+
+	
+	@GetMapping("/member/editForm")
+	public ModelAndView editForm(HttpServletRequest req) {
+		System.out.println("MemberController.editForm()");
+		ModelAndView mav = new ModelAndView("member/editForm");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		Member member = mservice.getMember(id);
+		System.out.println("접속중인 ID : " + id);
+		System.out.println("수정할 회원정보 : " + member);
+		mav.addObject("m", member);
+		
+		return mav;
+	}
+	
+	@PostMapping("/member/edit")
+	public String edit(Member m) {
+		System.out.println("MemberController.edit()");
+		System.out.println("수정된 회원정보 : " + m);
+		mservice.editMember(m);
 		
 		return "redirect:/";
 	}

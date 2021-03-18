@@ -7,6 +7,7 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -16,29 +17,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- header -->
 <header><c:import url="../header.jsp"></c:import></header>
-<h2>자유게시판</h2>
+<h2>내 정보수정</h2>
+<!-- Left Bar -->
 <div id="container">
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
-		<div class="col-md-12">
-			<label for="title" class="form-label">Title</label>
- 			<input type="text" class="form-control" name="title" id="title" value="${b.title }" readonly>
+	<form name="fedit" method="POST" action="${pageContext.request.contextPath }/member/edit">
+		<div class="col-md-6">
+			<label for="id" class="form-label">ID</label>
+ 			<input type="text" class="form-control" id="id" name="id" value="${m.id }" readonly>
+ 		</div>
+		<div class="col-md-6">
+			<label for="password" class="form-lable">Password</label>
+			<input type="password" class="form-control" name="password" id="password" value="${m.password }">
 		</div>
-		<div class="col-md-12">
-			<label for="content" class="form-label">Content</label>
- 			<textarea type="text" class="form-control" name="content" id="content" cols="120" readonly>${b.content }</textarea>
+		<div class="col-md-6">
+			<label for="passwordCheck" class="form-lable">Password Check</label>
+			<input type="password" class="form-control" name="passwordCheck" id="passwordCheck" value="${m.password }">
 		</div>
+		<div class="col-md-6">
+			<label for="name" class="form-label">Name</label>
+ 			<input type="text" class="form-control" name="name" id="name" value="${m.name }">
+		</div>
+		<div class="col-12">
+   			<label for="inputAddress" class="form-label">Address</label>
+   			<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+ 		</div>
 		<div>
-			<button id="write" class="btn-danger" onclick="location.href='/board/boardUpdate?b_num=${b.b_num}'">수정</button>
+			<button id="edit" class="btn-danger btn-primary btn" onclick="fedit()">회원정보수정</button>
+			<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
 		</div>
-		<div>
-			<button id="write" class="btn-danger">삭제</button>
-		</div>
-    </div>
+	</form>
+	</div>
 </div>
-
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>
 

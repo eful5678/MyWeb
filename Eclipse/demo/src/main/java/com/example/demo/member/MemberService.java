@@ -16,5 +16,9 @@ public class MemberService {
 	public Member getMember(String id) {
 		return mapper.getMember(id);
 	}
+	
+	public void editMember(Member m) {
+		mapper.editMember(m);
+	}
 
 }

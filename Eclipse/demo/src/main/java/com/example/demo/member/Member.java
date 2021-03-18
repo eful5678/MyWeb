@@ -4,13 +4,23 @@ public class Member {
 	
 	String id;
 	String password;
+	String name;
 	
-	public Member(String id, String password) {
+	public Member(String id, String password, String name) {
 		super();
 		this.id = id;
 		this.password = password;
+		this.name = name;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -23,11 +33,13 @@ public class Member {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", password=" + password + "]";
+		return "Member [id=" + id + ", password=" + password + ", name=" + name + "]";
 	}
+	
+	
 	
 	
 

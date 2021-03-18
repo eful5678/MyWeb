@@ -9,7 +9,7 @@
 	</resultMap>
 	
 	<insert id="writeBoard" parameterType="com.example.demo.board.Board">
-		INSERT INTO my_board VALUES(seq_myboard.NEXTVAL, #{m_id}, #{title}, #{content})
+		INSERT INTO my_board VALUES(#{b_num}, #{m_id}, #{title}, #{content})
 	</insert>
 	
 	<select id="selectAll" resultMap="board" parameterType="int">
@@ -21,7 +21,7 @@
 	</select>
 	
 	<update id="editBoard" parameterType="com.example.demo.board.Board">
-		UPDATE my_board SET title=#{title}, content=#{content} WHERE b_num=#{num}
+		UPDATE my_board SET title=#{title}, content=#{content} WHERE b_num=#{b_num}
 	</update>
 
 </mapper>

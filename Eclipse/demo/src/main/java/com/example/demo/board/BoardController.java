@@ -51,9 +51,11 @@ public class BoardController {
 	
 	@GetMapping("board/boardUpdate")
 	public ModelAndView boardUpdate(@RequestParam("b_num") int num) {
+		System.out.println("BoardController.boardUpdate()");
 		System.out.println("글 번호(update) : " + num);
 		ModelAndView mav = new ModelAndView("board/boardUpdate");
 		Board board = bservice.selectByNum(num);
+		System.out.println("선택된 글 : " + board);
 		mav.addObject("b", board);
 		return mav;
 	}

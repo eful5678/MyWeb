@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,33 +15,36 @@
 <script src="/js/js.js"></script>
 <link rel="stylesheet" href="/css/css.css">
 <title>Login Page</title>
+
 </head>
 <body>
 <!-- header -->
-<header include-html="/html/header.html"></header>
+<header><c:import url="../header.jsp"></c:import></header>
 <h2>Login</h2>
 
 <!-- left bar -->
+<form name="flogin" method="GET" action="${pageContext.request.contextPath }/member/login">
 <div id="container">
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
-	<form name="flogin" method="GET" action="${pageContext.request.contextPath }/member/login">
-		<div class="col-md-6">
+	
+		<div class="col-md-12">
 			<label for="id" class="form-label">ID</label>
- 			<input type="text" class="form-control" name="id" id="id" placeholder="id를 입력해주세요" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
+ 			<input type="text" class="form-control" name="id" id="id" placeholder="id를 입력해주세요">
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<label for="password" class="form-label">Password</label>
  			<input type="password" class="form-control" name="password" id="password" placeholder="******" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
 		</div>
 		<div>
-			<button id="login" class="btn-danger btn-primary btn" onclick="login()">로그인</button>
+			<input type="button" id="loginBtn" class="btn-danger btn-primary btn" value="로그인" onclick="login()">
 			<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
+			
 		</div>
-	</form>
+	
 	</div>
 </div>
-
+</form>
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>
 
@@ -48,4 +52,5 @@
 includeHTML();
 </script>
 </body>
+
 </html>

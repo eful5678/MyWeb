@@ -17,7 +17,7 @@
 </head>
 <body>
 <!-- header -->
-<header include-html="/html/header.html"></header>
+<header><c:import url="../header.jsp"></c:import></header>
 <h2>자유게시판</h2>
 
 <!-- left bar -->

@@ -24,6 +24,7 @@ public class BoardService {
 	}
 	
 	public void editBoard(Board b) {
+		mapper.editBoard(b);
 		
 	}
 

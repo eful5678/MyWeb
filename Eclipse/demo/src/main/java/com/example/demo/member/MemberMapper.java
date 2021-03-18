@@ -8,5 +8,7 @@ public interface MemberMapper {
 	void addMember(Member m);
 	
 	Member getMember(String id);
+	
+	void editMember(Member m);
 
 }
