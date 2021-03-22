@@ -5,14 +5,30 @@ public class Member {
 	String id;
 	String password;
 	String name;
+	String email;
 	
-	public Member(String id, String password, String name) {
+	public Member(String id, String password, String name, String email) {
 		super();
 		this.id = id;
 		this.password = password;
 		this.name = name;
+		this.email = email;
 	}
 	
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
 	public String getName() {
 		return name;
 	}
@@ -34,10 +50,14 @@ public class Member {
 		this.password = password;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", password=" + password + ", name=" + name + "]";
+		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", email=" + email + "]";
 	}
+
+
 	
 	
 	

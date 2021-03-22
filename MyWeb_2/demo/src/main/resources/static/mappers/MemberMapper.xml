@@ -5,10 +5,11 @@
 		<result property="id" column="id"/>
 		<result property="password" column="password"/>
 		<result property="name" column="name"/>
+		<result property="email" column="email"/>
 	</resultMap>
 	
 	<insert id="addMember" parameterType="com.example.demo.member.Member">
-		INSERT INTO my_member VALUES(#{id}, #{password}, #{name})
+		INSERT INTO my_member VALUES(#{id}, #{password}, #{name}, #{email})
 	</insert>
 	
 	<select id="getMember" resultMap="member" parameterType="String">
@@ -16,6 +17,6 @@
 	</select>
 	
 	<update id="editMember" parameterType="com.example.demo.member.Member">
-		UPDATE my_member SET password=#{password}, name=#{name} WHERE id=#{id}
+		UPDATE my_member SET password=#{password}, name=#{name}, email=#{email} WHERE id=#{id}
 	</update>
 </mapper>

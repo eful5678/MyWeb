@@ -72,7 +72,7 @@ public class MemberController {
 	@GetMapping("/member/editForm")
 	public ModelAndView editForm(HttpServletRequest req) {
 		System.out.println("MemberController.editForm()");
-		ModelAndView mav = new ModelAndView("member/editForm");
+		ModelAndView mav = new ModelAndView("/member/editForm");
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
 		Member member = mservice.getMember(id);

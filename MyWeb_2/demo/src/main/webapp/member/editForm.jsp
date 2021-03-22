@@ -14,45 +14,42 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script src="/js/js.js"></script>
 <link rel="stylesheet" href="/css/css.css">
-<title>Login Page</title>
+<title>Insert title here</title>
 </head>
 <body>
-<!-- header -->
 <header><c:import url="/header.jsp"></c:import></header>
-<h2>Join</h2>
-
+<h2>내 정보수정</h2>
 <!-- Left Bar -->
 <div id="container">
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
-	<form class="row g-3" name="fjoin" method="POST" action="${pageContext.request.contextPath }/member/join">
+	<form class="row g-3" name="fedit" method="POST" action="${pageContext.request.contextPath }/member/edit">
 		<div class="col-md-6">
 			<label for="id" class="form-label">ID</label>
- 			<input type="text" class="form-control" id="id" name="id" placeholder="id를 입력해주세요" onkeyup="join_emptyCheck()" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
- 			<span id="join_id"></span>
+ 			<input type="text" class="form-control-plaintext" id="id" name="id" value="${m.id }" readonly>
  		</div>
  		<div class="col-md-6">
  			<label for="email" class="form-label">E-mail</label>
- 			<input type="text" class="form-control" id="email" name="email" placeholder="email address">
+ 			<input type="text" class="form-contorl-plaintext" id="email" name="email" value="${m.email }">
  		</div>
 		<div class="col-md-6">
 			<label for="password" class="form-lable">Password</label>
-			<input type="password" class="form-control" name="password" id="password" placeholder="******">
+			<input type="password" class="form-control" name="password" id="password" value="${m.password }">
 		</div>
 		<div class="col-md-6">
 			<label for="passwordCheck" class="form-lable">Password Check</label>
-			<input type="password" class="form-control" name="passwordCheck" id="passwordCheck" placeholder="******">
+			<input type="password" class="form-control" name="passwordCheck" id="passwordCheck" value="${m.password }">
 		</div>
 		<div class="col-md-6">
 			<label for="name" class="form-label">Name</label>
- 			<input type="text" class="form-control" name="name" id="name" placeholder="이름을 입력해주세요" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
+ 			<input type="text" class="form-control" name="name" id="name" value="${m.name }">
 		</div>
 		<div class="col-12">
    			<label for="inputAddress" class="form-label">Address</label>
    			<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
  		</div>
 		<div>
-			<input type="button" id="joinBtn" class="btn-danger btn-primary btn" value="회원가입" onclick="join()">
+			<button id="edit" class="btn-danger btn-primary btn" onclick="fedit()">회원정보수정</button>
 			<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
 		</div>
 	</form>
@@ -64,6 +61,5 @@
 <script>
 includeHTML();
 </script>
-<script src="/js/js.js"></script>
 </body>
 </html>

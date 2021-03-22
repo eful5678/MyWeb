@@ -30,10 +30,8 @@
 			<label for="content" class="form-label">Content</label>
  			<textarea type="text" class="form-control" name="content" id="content" cols="120" readonly>${b.content }</textarea>
 		</div>
-		<div>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 			<button id="write" class="btn-danger" onclick="location.href='/board/boardUpdate?b_num=${b.b_num}'">수정</button>
-		</div>
-		<div>
 			<button id="write" class="btn-danger">삭제</button>
 		</div>
     </div>

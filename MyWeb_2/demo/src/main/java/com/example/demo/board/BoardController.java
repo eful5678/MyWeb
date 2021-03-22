@@ -23,7 +23,7 @@ public class BoardController {
 	@PostMapping("/board/board")
 	public String board(Board b) {
 		bservice.writeBoard(b);
-		return "/index";
+		return "/board/boardList";
 	}
 	
 	@GetMapping("/board/boardList")
@@ -37,10 +37,10 @@ public class BoardController {
 		return mav;
 	}
 	
-	@GetMapping("board/boardDetail")
+	@GetMapping("/board/boardDetail")
 	public ModelAndView boardDetail(@RequestParam("b_num") int num) {
 		System.out.println("글 번호 : " + num);
-		ModelAndView mav = new ModelAndView("board/boardDetail");
+		ModelAndView mav = new ModelAndView("/board/boardDetail");
 		Board board = bservice.selectByNum(num);
 		
 		System.out.println("글 내용 : " + board);
@@ -49,18 +49,18 @@ public class BoardController {
 		return mav;
 	}
 	
-	@GetMapping("board/boardUpdate")
+	@GetMapping("/board/boardUpdate")
 	public ModelAndView boardUpdate(@RequestParam("b_num") int num) {
 		System.out.println("BoardController.boardUpdate()");
 		System.out.println("글 번호(update) : " + num);
-		ModelAndView mav = new ModelAndView("board/boardUpdate");
+		ModelAndView mav = new ModelAndView("/board/boardUpdate");
 		Board board = bservice.selectByNum(num);
 		System.out.println("선택된 글 : " + board);
 		mav.addObject("b", board);
 		return mav;
 	}
 	
-	@PostMapping("board/boardEdit")
+	@PostMapping("/board/boardEdit")
 	public String boardEdit(Board b) {
 		System.out.println("BoardController.boardEdit()");
 		System.out.println("수정된 board : " + b);

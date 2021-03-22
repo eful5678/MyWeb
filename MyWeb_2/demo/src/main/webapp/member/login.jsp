@@ -28,15 +28,16 @@
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
 	
-		<div class="col-md-12">
-			<label for="id" class="form-label">ID</label>
+		<div class="input-group mb-32">
+			<span class="input-group-text col-2" id="inputGroup-sizing-default">ID</span>
  			<input type="text" class="form-control" name="id" id="id" placeholder="id를 입력해주세요">
 		</div>
-		<div class="col-md-12">
-			<label for="password" class="form-label">Password</label>
+		<div class="input-group mb-32">
+			<span class="input-group-text col-2" id="inputGroup-sizing-default">Password</span>
  			<input type="password" class="form-control" name="password" id="password" placeholder="******" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
 		</div>
-		<div>
+		<br>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 			<input type="button" id="loginBtn" class="btn-danger btn-primary btn" value="로그인" onclick="login()">
 			<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
 			

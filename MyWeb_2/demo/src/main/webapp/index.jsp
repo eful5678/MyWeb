@@ -24,13 +24,25 @@
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
 	아직 뭘해야 할지 모르겠습니다. 오늘은 회원정보 수정기능을 구현했씁니다.
+	<div>
+	해야할 일
+		<ul>
+			<li>게시판 조회수 카운팅 기능을 넣어보자</li>
+			<li>회원가입/로그인 빈칸 체크</li>
+			<li>회원가입/로그인 id 중복여부 / 아이디 비밀번호 틀렷을때 어째료</li>
+		</ul>
 	</div>
+	</div>
+	<div class="js-clock" onload="init()">
+            <h1>00:00</h1>
+     </div>
 </div>
 
-${sessionScope.id }
+<footer include-html="/html/footer.html"></footer>
 
 <script>
 includeHTML();
+init();
 </script>
 </body>
 </html>

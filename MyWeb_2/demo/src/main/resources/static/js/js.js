@@ -34,7 +34,23 @@ function includeHTML(){
 
 function join(){
 	alert("join?");
+	var join_id = document.getElementById("id");
+	console.log("id : " + join_id.value);
+	if(join_id.value == ""){
+		alert("id를 입력해주세요");
+		return;
+	}
 	fjoin.submit();
+}
+
+function join_emptyCheck(){
+	var join_id = document.getElementById("id");
+	
+	if(join_id != ""){
+		document.getElementById("join_id").innerHTML = "id 입력중";
+	}else{
+		document.getElementById("join_id").innerHTML = "";
+	}
 }
 
 function login(){
@@ -54,6 +70,8 @@ function login(){
 	flogin.submit();
 }
 
+
+
 function fedit(){
 	fedit.submit();
 }
@@ -69,3 +87,25 @@ function write(){
 function editBoard(){
 	editBoard.submit();
 }
+
+
+const clockContainer = document.querySelector(".js-clock");
+
+const clockTitle = clockContainer.querySelector("h1");
+function getTime(){
+    const date = new Date();
+    const minutes = date.getMinutes();
+    const hours = date.getHours();
+    const seconds = date.getSeconds();
+    clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+        minutes < 10 ? `0${minutes}` : minutes}:${
+        seconds < 10 ? `0${seconds}` : seconds
+    }`;
+    
+}
+
+function init(){
+    getTime();
+    setInterval(getTime, 1000);
+}
+init();
