@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	function link(where){
+		console.log(where);
+		if(where == 'freeboard'){
+			location.href= "/board/boardForm";
+		}
+	}
+</script>
+</head>
+<body>
+<div class="btn-group-vertical">
+	<button type="button" class="btn btn-primary btn-lg">공지사항</button>
+	<button id="freeboard1" class="btn btn-primary btn-lg" onclick="location.href='/board/boardList'">자유게시판</button>
+	<button type="button" class="btn btn-primary btn-lg">자유게시판</button>
+	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='/MemberLee/Lee'">이동준</button>
+	<button type="button" class="btn btn-primary btn-lg">자유게시판</button>
+	<button type="button" class="btn btn-primary btn-lg">자유게시판</button>
+	<button type="button" class="btn btn-primary btn-lg">자유게시판</button>
+	<button type="button" class="btn btn-primary btn-lg">자유게시판</button>
+</div>
+
+</body>
+</html>
+

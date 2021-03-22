@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.board.BoardMapper">
+	<resultMap type="com.example.demo.board.Board" id="board">
+		<result property="b_num" column="b_num"/>
+		<result property="m_id" column="m_id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+	</resultMap>
+	
+	<insert id="writeBoard" parameterType="com.example.demo.board.Board">
+		INSERT INTO my_board VALUES(#{b_num}, #{m_id}, #{title}, #{content})
+	</insert>
+	
+	<select id="selectAll" resultMap="board" parameterType="int">
+		SELECT * FROM my_board
+	</select>
+	
+	<select id="selectByNum" resultMap="board" parameterType="int">
+		SELECT * FROM my_board WHERE b_num=#{num}
+	</select>
+	
+	<update id="editBoard" parameterType="com.example.demo.board.Board">
+		UPDATE my_board SET title=#{title}, content=#{content} WHERE b_num=#{b_num}
+	</update>
+
+</mapper>

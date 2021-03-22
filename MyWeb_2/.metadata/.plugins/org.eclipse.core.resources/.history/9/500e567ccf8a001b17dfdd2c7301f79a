@@ -1,0 +1,47 @@
+package com.example.demoboard;
+
+public class Board {
+	
+	String b_num;
+	String m_id;
+	String title;
+	String content;
+	public Board(String b_num, String m_id, String title, String content) {
+		super();
+		this.b_num = b_num;
+		this.m_id = m_id;
+		this.title = title;
+		this.content = content;
+	}
+	public String getB_num() {
+		return b_num;
+	}
+	public void setB_num(String b_num) {
+		this.b_num = b_num;
+	}
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	@Override
+	public String toString() {
+		return "Board [b_num=" + b_num + ", m_id=" + m_id + ", title=" + title + ", content=" + content + "]";
+	}
+	
+	
+
+}

@@ -1,0 +1,13 @@
+package com.example.demo.member;
+
+@Mapper
+public interface MemberMapper {
+	
+	void addMember(Member m);
+	
+	Member getMember(String id);
+	
+	void editMember(Member m);
+
+}
+	
