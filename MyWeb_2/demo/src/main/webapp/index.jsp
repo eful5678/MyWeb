@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-금석이 축하한다.
+
 <!-- header -->
 <header><c:import url="/header.jsp"></c:import></header>
 
@@ -27,7 +27,7 @@
 	<div id="form" class="container-fluid vertical-center justify-content-center">
 	아직 뭘해야 할지 모르겠습니다. 오늘은 회원정보 수정기능을 구현했습니다.
 	<div>
-	해야할 일
+	해야할 일 - 2021.03.23
 		<ul>
 			<li>게시판 조회수 카운팅 기능을 넣어보자</li>
 			<li>회원가입/로그인 빈칸 체크</li>
@@ -35,8 +35,9 @@
 		</ul>
 	</div>
 	</div>
-	<div class="js-clock" onload="init()">
+	<div class="js-clock">
             <h1>00:00</h1>
+            <script src="/js/js.js"></script>
      </div>
 </div>
 

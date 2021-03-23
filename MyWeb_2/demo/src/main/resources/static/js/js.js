@@ -105,6 +105,14 @@ function login(){
 		alert("비밀번호를 입력해주세요");
 		return;
 	}
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status === 200){
+		
+		}
+	}
+	
 	flogin.submit();
 }
 
@@ -138,9 +146,9 @@ function editBoard(){
 }
 
 
-const clockContainer = document.querySelector(".js-clock");
-
-const clockTitle = clockContainer.querySelector("h1");
+var clockContainer = document.querySelector(".js-clock");
+var clockTitle = clockContainer.querySelector("h1");
+console.log(clockContainer);
 function getTime(){
     const date = new Date();
     const minutes = date.getMinutes();

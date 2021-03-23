@@ -19,6 +19,10 @@ li{
 	line-height: 30px;
 }
 
+a {
+	text-decoration:none;
+}
+
 #form{
 	display: inline-block;
 	height: 100%;

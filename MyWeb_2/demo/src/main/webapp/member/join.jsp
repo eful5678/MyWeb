@@ -31,11 +31,8 @@
 		<div class="input-group mb-3">
  			<input type="text" class="form-control" id="id" name="id" placeholder="id를 입력해주세요" onkeyup="join_emptyCheck()" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
  			<input type="button" class="btn btn-outline-secondary col-md-4" value="중복체크" onclick="join_idCheck()">
- 				
  				<span id="join_id"></span><br>
  				<span id="join_check"></span>
- 			
- 				
  		</div>
  		</div>
  		<div class="col-md-12">
