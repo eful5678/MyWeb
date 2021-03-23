@@ -95,6 +95,7 @@ function login(){
 	alert("login?");
 	var login_id = document.getElementById("id");
 	var login_pwd = document.getElementById("password");
+	var session_id = document.getElementById("sessionId");
 	console.log("id : " + login_id.value);
 	console.log("pwd : " + login_pwd.value);
 	if(login_id.value == ""){
@@ -105,15 +106,32 @@ function login(){
 		alert("비밀번호를 입력해주세요");
 		return;
 	}
+	//flogin.submit();
+	
+	if(sessionId.value != ""){
+		alert(sessionId.value + "님 이미 로그인 하셨습니다");
+		return;
+	}
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(xhttp.readyState == 4 && xhttp.status === 200){
+			console.log(xhttp.responseText);
+			
+			if(xhttp.responseText == "로그인 성공"){
+				alert("로그인 성공");
+				location.href="/";
 		
+			}else{
+				alert("ID 또는 비밀번호가 틀렸습니다");
+				location.href="/member/loginForm";
+			}
 		}
 	}
+	xhttp.open("POST","/member/login?id=" + login_id.value + "&password=" + login_pwd.value, true);
+	xhttp.send();
 	
-	flogin.submit();
+	
 }
 
 
@@ -139,6 +157,21 @@ function moveWrite(){
 
 function write(){
 	freeboard1.submit();
+}
+
+function boardIdCheck(num){
+	var session_id = document.getElementById("sessionId");
+	var writer = document.getElementById("writer");
+	console.log("접속중인 id = " + session_id.value);
+	console.log("글쓴이 = " + writer.value);
+	if(session_id.value == ""){
+		alert("로그인을 해주세요");
+	}else if(session_id.value == writer.value){
+		location.href="/board/boardUpdate?b_num=" + num;
+	}else{
+		alert("글쓴이가 아닙니다");
+	}
+	
 }
 
 function editBoard(){

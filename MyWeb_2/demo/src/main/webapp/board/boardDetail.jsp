@@ -31,12 +31,13 @@
  			<textarea type="text" class="form-control" name="content" id="content" cols="120" readonly>${b.content }</textarea>
 		</div>
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			<button id="write" class="btn-danger" onclick="location.href='/board/boardUpdate?b_num=${b.b_num}'">수정</button>
+			<button id="write" class="btn-danger" onclick="boardIdCheck('${b.b_num}')" onclick="location.href='/board/boardUpdate?b_num=${b.b_num}'">수정</button>
 			<button id="write" class="btn-danger">삭제</button>
 		</div>
     </div>
 </div>
-
+<input id="sessionId" type="hidden" value="${sessionScope.id }">
+<input id="writer" type="hidden" value="${b.m_id }">
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>
 

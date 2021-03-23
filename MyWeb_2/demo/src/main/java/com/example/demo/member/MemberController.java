@@ -60,19 +60,34 @@ public class MemberController {
 	}
 	
 	@PostMapping("/member/login")
-	public String login(HttpServletRequest req, Member m) {
+	public ModelAndView login(HttpServletRequest req, @RequestParam("id")String id, @RequestParam("password") String password) {
+		System.out.println("MemberController.login()");
 		HttpSession session = req.getSession();
-		Member member = mservice.getMember(m.getId());
-		System.out.println("입력된 ID : " + m.getId());
-		if(member == null || !member.getPassword().equals(m.getPassword()) ) {
-			System.out.println("로그인 실패");
-			return "/member/loginForm";
+		ModelAndView mav = new ModelAndView("/member/check");
+		System.out.println("입력된 id = " + id);
+		System.out.println("입력된 password = " + password);
+		Member member = mservice.getMember(id);
+
+		String result ="";
+		if(member == null || !member.getPassword().equals(password) ) {
+			result = "로그인 실패";
+			System.out.println(result);
+			mav.addObject("result",result);
+			//mav.setViewName("redirect:/member/loginForm");
+			
 		}else {
-			System.out.println("로그인 성공");
+			result = "로그인 성공";
+			System.out.println(result);
 			session.setAttribute("id", member.getId());
-			return "/index";
+			mav.addObject("result", result);
+			//mav.setViewName("/index");
+			
 		}
+		
+		return mav;
 	}
+	
+
 	
 	@GetMapping("/member/logout")
 	public String logout(HttpServletRequest req) {
