@@ -26,12 +26,19 @@
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
 	<form class="row g-3" name="fjoin" method="POST" action="${pageContext.request.contextPath }/member/join">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<label for="id" class="form-label">ID</label>
+		<div class="input-group mb-3">
  			<input type="text" class="form-control" id="id" name="id" placeholder="id를 입력해주세요" onkeyup="join_emptyCheck()" aria-label="4~16자의 영문 소문자, 숫자만 사용가능합니다." aria-describedby="button-addon2">
- 			<span id="join_id"></span>
+ 			<input type="button" class="btn btn-outline-secondary col-md-4" value="중복체크" onclick="join_idCheck()">
+ 				
+ 				<span id="join_id"></span><br>
+ 				<span id="join_check"></span>
+ 			
+ 				
  		</div>
- 		<div class="col-md-6">
+ 		</div>
+ 		<div class="col-md-12">
  			<label for="email" class="form-label">E-mail</label>
  			<input type="text" class="form-control" id="email" name="email" placeholder="email address">
  		</div>
@@ -41,7 +48,8 @@
 		</div>
 		<div class="col-md-6">
 			<label for="passwordCheck" class="form-lable">Password Check</label>
-			<input type="password" class="form-control" name="passwordCheck" id="passwordCheck" placeholder="******">
+			<input type="password" class="form-control" name="passwordCheck" id="passwordCheck" placeholder="******" onkeyup="pwdCheck()">
+			<span id="pwd_check"></span>
 		</div>
 		<div class="col-md-6">
 			<label for="name" class="form-label">Name</label>

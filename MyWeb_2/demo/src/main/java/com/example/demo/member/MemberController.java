@@ -36,12 +36,30 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/member/idCheck")
+	public ModelAndView idCheck(@RequestParam("id") String id) {
+		System.out.println("MemberController.idCheck()");
+		System.out.println("입력된 id = " + id);
+		String result = "";
+		ModelAndView mav = new ModelAndView("/member/check");
+		Member m = mservice.getMember(id);
+		System.out.println("입력된 id 정보 : " + m);
+		if(m == null) {
+			result = "가능";
+		}else {
+			result = "불가";
+		}
+		System.out.println("중복 여부 :" + result);
+		mav.addObject("result",result);
+		return mav;
+	}
+	
 	@GetMapping("/member/loginForm")
 	public String loginForm() {
 		return "/member/login";
 	}
 	
-	@GetMapping("/member/login")
+	@PostMapping("/member/login")
 	public String login(HttpServletRequest req, Member m) {
 		HttpSession session = req.getSession();
 		Member member = mservice.getMember(m.getId());

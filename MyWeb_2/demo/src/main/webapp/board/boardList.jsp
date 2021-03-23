@@ -47,7 +47,7 @@
 		</div>
 	</div>
 </div>
-
+<input type="hidden" id="sessionId" value="${sessionScope.id }">
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>
 

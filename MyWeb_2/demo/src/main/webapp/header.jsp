@@ -64,12 +64,7 @@
          	</li>
 			<li class="nav-item">
          		 <a class="nav-link active" aria-current="page" href="/member/logout">Logout</a>
-         	
 			</c:if>
-      		
-      		
-			
-
       	</ul>
       </div>
       <form class="d-flex">

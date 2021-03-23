@@ -1,5 +1,5 @@
 /**
- * 
+ * 전체 페이지의 HTML을 불러오기 위한 함수
  */
 
 function includeHTML(){
@@ -32,6 +32,10 @@ function includeHTML(){
 	}
 };
 
+/**
+* 회원가입 기능
+*/
+
 function join(){
 	alert("join?");
 	var join_id = document.getElementById("id");
@@ -46,10 +50,44 @@ function join(){
 function join_emptyCheck(){
 	var join_id = document.getElementById("id");
 	
-	if(join_id != ""){
-		document.getElementById("join_id").innerHTML = "id 입력중";
+	if(join_id.value.length < 5 || join_id.value.length > 16){
+		document.getElementById("join_id").innerHTML = "id는 4자 이상 16자 이하로 입력해주세요";
 	}else{
 		document.getElementById("join_id").innerHTML = "";
+	}
+	return;
+}
+
+function join_idCheck(){
+	var id = document.getElementById("id");
+	console.log("입력된 id = " + id.value);
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status === 200){
+			console.log(xhttp.responseText);
+			if(xhttp.responseText == "가능"){
+				document.getElementById("join_check").innerHTML = "사용가능한 id";
+			}else{
+				document.getElementById("join_check").innerHTML = "사용불가한 id";
+			}
+		}
+	
+	}
+	
+	xhttp.open("GET", "/member/idCheck?id=" + id.value, true);
+	xhttp.send();
+}
+
+function pwdCheck(){
+	var password = document.getElementById("password");
+	var passwordCheck = document.getElementById("passwordCheck");
+	console.log("password : " + password.value);
+	console.log("passwordCheck : " + passwordCheck.value);
+	
+	if(password.value != passwordCheck.value){
+		document.getElementById("pwd_check").innerHTML = "비밀번호가 일치하지 않습니다";
+	}else{
+		document.getElementById("pwd_check").innerHTML = "비밀번호가 일치합니다";
 	}
 }
 
@@ -77,7 +115,18 @@ function fedit(){
 }
 
 function moveWrite(){
-	location.href="/board/boardForm";
+	alert("글쓰기?");
+	var id = document.getElementById("sessionId");
+	console.log("로그인된 id = " + id.value);
+	console.log(typeof(id.value));
+	if(id.value === ""){
+		alert("로그인 해주세요!");
+		return;
+	}else{
+		alert(id.value + "님");
+		location.href="/board/boardForm";
+	}
+	
 }
 
 function write(){
