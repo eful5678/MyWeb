@@ -9,9 +9,13 @@ ___
 - Spring Boot
 - Java
 - Web : HTML, CSS, JavaScript
-- DB : Oracle DB
+- DB : MySQL
 - 
 ### 현재 구현된 기능
 - 로그인 및 회원가입
-  - 오라클 DB를 이용하여 회원정보 저장
+  - MySQL를 이용하여 회원정보 저장
+- 게시판
+  - 게시판 글 리스트 / 쓰기 / 수정 구현
 
+### 호스팅
+- AWS ec2 이용하여 웹에 배포
