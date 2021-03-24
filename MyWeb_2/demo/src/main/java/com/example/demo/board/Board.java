@@ -6,13 +6,31 @@ public class Board {
 	String m_id;
 	String title;
 	String content;
-	public Board(String b_num, String m_id, String title, String content) {
+	int viewCNT;
+	
+	public Board(String b_num, String m_id, String title, String content, int viewCNT) {
 		super();
 		this.b_num = b_num;
 		this.m_id = m_id;
 		this.title = title;
 		this.content = content;
+		this.viewCNT = viewCNT;
 	}
+	
+	
+	
+	public int getViewCNT() {
+		return viewCNT;
+	}
+
+
+
+	public void setViewCnt(int viewCNT) {
+		this.viewCNT = viewCNT;
+	}
+
+
+
 	public String getB_num() {
 		return b_num;
 	}
@@ -37,10 +55,16 @@ public class Board {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+
+
 	@Override
 	public String toString() {
-		return "Board [b_num=" + b_num + ", m_id=" + m_id + ", title=" + title + ", content=" + content + "]";
+		return "Board [b_num=" + b_num + ", m_id=" + m_id + ", title=" + title + ", content=" + content + ", viewCnt="
+				+ viewCNT + "]";
 	}
+	
+	
 	
 	
 

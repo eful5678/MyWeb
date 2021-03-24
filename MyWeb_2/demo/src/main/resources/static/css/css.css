@@ -6,6 +6,7 @@ header{
 footer{
 	color:blue;
 	text-align: center;
+	
 }
 
 h1{
@@ -22,6 +23,8 @@ li{
 a {
 	text-decoration:none;
 }
+
+
 
 #form{
 	display: inline-block;

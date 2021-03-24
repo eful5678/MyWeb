@@ -14,5 +14,7 @@ public interface BoardMapper {
 	Board selectByNum(int num);
 	
 	void editBoard(Board b);
+	
+	void incCNT(int num);
 
 }

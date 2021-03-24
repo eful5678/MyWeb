@@ -19,4 +19,8 @@
 	<update id="editMember" parameterType="com.example.demo.member.Member">
 		UPDATE my_member SET password=#{password}, name=#{name}, email=#{email} WHERE id=#{id}
 	</update>
+	
+	<delete id="delMember" parameterType="String">
+		DELETE FROM my_member WHERE id=#{id}
+	</delete>
 </mapper>

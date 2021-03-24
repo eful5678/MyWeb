@@ -43,6 +43,8 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView("/board/boardDetail");
 		Board board = bservice.selectByNum(num);
 		
+		bservice.incCNT(num);
+		
 		System.out.println("글 내용 : " + board);
 		mav.addObject("b",board);
 		
@@ -67,5 +69,7 @@ public class BoardController {
 		bservice.editBoard(b);
 		return "redirect:/board/boardList";
 	}
+	
+	
 
 }

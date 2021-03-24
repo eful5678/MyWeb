@@ -20,5 +20,9 @@ public class MemberService {
 	public void editMember(Member m) {
 		mapper.editMember(m);
 	}
+	
+	public void delMember(String id) {
+		mapper.delMember(id);
+	}
 
 }

@@ -23,10 +23,12 @@
 <h2>Login</h2>
 
 <!-- left bar -->
-<form name="flogin" method="POST" action="${pageContext.request.contextPath }/member/login">
+
 <div id="container">
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
+	
 	<div id="form" class="container-fluid vertical-center justify-content-center">
+		<form name="flogin" method="POST" action="${pageContext.request.contextPath }/member/login">
 		<div class="input-group mb-32">
 			<span class="input-group-text col-2" id="inputGroup-sizing-default">ID</span>
  			<input type="text" class="form-control" name="id" id="id" placeholder="id를 입력해주세요">
@@ -40,9 +42,11 @@
 			<input type="button" id="loginBtn" class="btn-danger btn-primary btn" value="로그인" onclick="login()">
 			<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
 		</div>
+		</form>
 	</div>
+	
 </div>
-</form>
+
 <input type="hidden" id="sessionId" value="${sessionScope.id }">
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>

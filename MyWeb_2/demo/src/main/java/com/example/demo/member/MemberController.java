@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -100,7 +101,18 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-
+	@GetMapping("/member/del")
+	public String del(HttpServletRequest req) {
+		System.out.println("MemberController.del()");
+		HttpSession session = req.getSession(false);
+		String id = (String)session.getAttribute("id");
+		System.out.println("삭제할 id = " + id);
+		
+		mservice.delMember(id);
+		session.removeAttribute("id");
+		session.invalidate();
+		return "redirect:/";
+	}
 	
 	@GetMapping("/member/editForm")
 	public ModelAndView editForm(HttpServletRequest req) {

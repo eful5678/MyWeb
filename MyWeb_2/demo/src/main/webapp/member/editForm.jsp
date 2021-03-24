@@ -49,12 +49,14 @@
    			<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
  		</div>
 		<div>
-			<button id="edit" class="btn-danger btn-primary btn" onclick="fedit()">회원정보수정</button>
+			<input type="button" id="edit" class="btn-danger btn-primary btn" value="회원정보수정" onclick="fedit()">
 			<button type="reset" id="reset" class="btn-danger btn-primary btn">재입력</button>
+			<input type="button" id="delete" class="btn-danger" value="회원탈퇴" onclick="del()">
 		</div>
 	</form>
 	</div>
 </div>
+<input type="hidden" id="sessionId" value="${sessionScope.id }">
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>
 

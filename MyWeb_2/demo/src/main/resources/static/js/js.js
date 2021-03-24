@@ -38,13 +38,23 @@ function includeHTML(){
 
 function join(){
 	alert("join?");
+	var i;
 	var join_id = document.getElementById("id");
+	var join_password = document.getElementById("password");
+	var join_email = document.getElementById("email");
+	var join_name = document.getElementById("name");
 	console.log("id : " + join_id.value);
-	if(join_id.value == ""){
-		alert("id를 입력해주세요");
-		return;
+	var memberInfo = new Array(join_id, join_password, join_email, join_name);
+	
+	console.log(memberInfo);
+	for(i = 0; i < memberInfo.length; i++){
+		if(memberInfo[i].value == ""){
+			alert("빈칸을 채워주세요");
+			return;
+		}
 	}
 	fjoin.submit();
+	
 }
 
 function join_emptyCheck(){
@@ -138,6 +148,11 @@ function login(){
 
 function fedit(){
 	fedit.submit();
+}
+
+function del(){
+	var id = document.getElementById("sessionId");
+	location.href = "/member/del";
 }
 
 function moveWrite(){

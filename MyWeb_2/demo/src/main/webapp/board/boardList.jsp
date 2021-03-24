@@ -27,9 +27,10 @@
 		<table class="table">
  			<thead>
     		<tr class="table-success">
-      			<th scope="col">#</th>
-      			<th class="table mb-3 table-success" scope="col">Title</th>
-      			<th scope="col">Writer</th>	
+      			<th style="width: 7%" scope="col">#</th>
+      			<th style="width: 63%" class="table mb-3 table-success" scope="col">Title</th>
+      			<th style="width: 20%" scope="col">Writer</th>	
+      			<th class="text-center" style="width: 10%" scope="col">조회수</th>	
     		</tr>
     		</thead>
 	<c:forEach var="b" items="${list }">
@@ -38,6 +39,7 @@
 				<th scope="row">${b.b_num }</th>
       			<td><a href="${pageContext.request.contextPath}/board/boardDetail?b_num=${b.b_num}">${b.title }</a></td>
       			<td>${b.m_id }</td>
+      			<td class="text-center">${b.viewCNT }</td>
 			</tr>
 			</tbody>
 	</c:forEach>

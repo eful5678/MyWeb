@@ -15,8 +15,12 @@
 <script src="/js/js.js"></script>
 <link rel="stylesheet" href="/css/css.css">
 <title>Insert title here</title>
+<!-- Google -->
+<meta name="google-site-verification" content="ptAKwgoD3UcMUVcbcxUoAN9npJT3N1tcy4PcLGRjOGE" />
 </head>
+
 <body>
+
 
 <!-- header -->
 <header><c:import url="/header.jsp"></c:import></header>
@@ -27,7 +31,7 @@
 	<div id="form" class="container-fluid vertical-center justify-content-center">
 	아직 뭘해야 할지 모르겠습니다. 오늘은 회원정보 수정기능을 구현했습니다.
 	<div>
-	해야할 일 - 2021.03.23
+	해야할 일 - 2021.03.24 4pm
 		<ul>
 			<li>게시판 조회수 카운팅 기능을 넣어보자</li>
 			<li>회원가입/로그인 빈칸 체크</li>

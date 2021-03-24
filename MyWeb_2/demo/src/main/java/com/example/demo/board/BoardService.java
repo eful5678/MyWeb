@@ -27,5 +27,9 @@ public class BoardService {
 		mapper.editBoard(b);
 		
 	}
+	
+	public void incCNT(int num) {
+		mapper.incCNT(num);
+	}
 
 }
