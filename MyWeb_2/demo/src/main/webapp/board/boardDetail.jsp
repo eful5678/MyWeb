@@ -6,7 +6,7 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -33,6 +33,10 @@
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 			<button id="write" class="btn-danger" onclick="boardIdCheck('${b.b_num}')" onclick="location.href='/board/boardUpdate?b_num=${b.b_num}'">수정</button>
 			<button id="write" class="btn-danger">삭제</button>
+		</div>
+		<div class="col-md-12">
+			<label for="reply" class="form-label">댓글</label>
+ 			<textarea class="form-control" name="reply" id="reply" cols="120"></textarea>
 		</div>
     </div>
 </div>

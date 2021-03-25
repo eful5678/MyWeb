@@ -6,7 +6,7 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -18,12 +18,14 @@
 <body>
 <!-- header -->
 <header><c:import url="/header.jsp"></c:import></header>
-<h2>자유게시판</h2>
+
 
 <!-- left bar -->
 <div id="container">
+
 	<div id="leftbar" include-html="/html/leftbar.html"></div>
 	<div id="form" class="container-fluid vertical-center justify-content-center">
+		<h2>자유게시판</h2>
 		<table class="table">
  			<thead>
     		<tr class="table-success">

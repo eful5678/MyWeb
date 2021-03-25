@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>concept.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%EA%B8%B0%EC%B4%88%EA%B0%9C%EB%85%90-%EB%AA%A8%EC%9D%8C">기초개념 모음</h1>
+<h2 id="%EB%AA%A9%EC%B0%A8">목차</h2>
+<ul>
+<li><a href="#Java">JAVA</a></li>
+<li><a href="#Database">Database</a></li>
+<li><a href="#Web">Web</a></li>
+<li><a href="#Network">Network</a></li>
+<li><a href="#Spring">Spring Framework</a></li>
+</ul>
+<p><a name ="java"></a></p>
+<hr>
+<h2 id="1-java">#1 Java</h2>
+<h3 id="%EC%9E%90%EB%B0%94%EC%9D%98-%ED%8A%B9%EC%84%B1"><strong>자바의 특성</strong></h3>
+<ul>
+<li>
+<p>객체지향언어</p>
+</li>
+<li>
+<p>플랫폼에 독립적 : JVM</p>
+</li>
+<li>
+<p>멀티쓰레드 지원</p>
+</li>
+<li>
+<p>자동 메모리 관리 : JVM</p>
+</li>
+<li>
+<p>네트워킹 가능 언어</p>
+</li>
+<li>
+<p>JVM</p>
+<ul>
+<li>메모리 영역</li>
+</ul>
+</li>
+<li>
+<p><span style="color:purple"><strong>자료형(Data Type)</strong></span></p>
+<ul>
+<li>
+<p>기본자료형(PDT)</p>
+<ul>
+<li>컴파일러에서 기본적으로 제공해주는 자료형</li>
+<li>정수 / 실수 / 문자 / 불리언</li>
+</ul>
+</li>
+<li>
+<p>사용자정의자료형(UDDT)</p>
+<ul>
+<li>
+<p>사용자가 직접 만들어서 사용하는 자료형</p>
+</li>
+<li>
+<p>객체자료형 / 문자열</p>
+</li>
+<li>
+<p>정보은닉(private)</p>
+<ul>
+<li>setter, getter method 이용</li>
+<li>&quot;b.title = &quot;해리포터&quot;;&quot; 등으로 접근 불가</li>
+</ul>
+</li>
+<li>
+<p>example</p>
+<pre class="hljs"><code><div><span class="hljs-comment">//자료형 생성</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookDTO</span></span>{
+    <span class="hljs-keyword">public</span> String title;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> price;
+    <span class="hljs-keyword">public</span> String comapny;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> page;
+
+<span class="hljs-comment">// 기본 생성자</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> class <span class="hljs-title">BookDTO</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">super</span>();
+}
+
+}
+<span class="hljs-comment">// 객체 생성</span>
+BookDTO b = <span class="hljs-keyword">new</span> BootDTO();
+</div></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>객체</p>
+</li>
+<li>
+<p>객체 지향 프로그래밍</p>
+</li>
+<li>
+<p>오버로딩</p>
+<ul>
+<li>같은 이름의 메소드를 여러개 가지면서 매개변수의 유형과 개수가 다르도록 하는 기술</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OverLoad</span></span>{
+    <span class="hljs-comment">// 1</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">hap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>{
+        a+b;
+    }
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">hap</span><span class="hljs-params">(<span class="hljs-keyword">float</span> a, <span class="hljs-keyword">int</span> b)</span></span>{
+        a+b;
+    }
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">hap</span><span class="hljs-params">(<span class="hljs-keyword">float</span> a, <span class="hljs-keyword">float</span> b)</span></span>{
+        a+b;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>{
+        OverLoad ov = <span class="hljs-keyword">new</span> OverLoad();
+        ov.hap(<span class="hljs-number">34.6f</span>, <span class="hljs-number">46</span>); <span class="hljs-comment">// 2</span>
+        ov.hap(<span class="hljs-number">34</span>,<span class="hljs-number">62</span>); <span class="hljs-comment">// 1</span>
+        ov.hap(<span class="hljs-number">74.6f</span>, <span class="hljs-number">26.6f</span>); <span class="hljs-comment">//3</span>
+    }
+}
+</div></code></pre>
+</li>
+<li>
+<p>오버라이드</p>
+</li>
+<li>
+<p>Model의 종류</p>
+<ul>
+<li>DTO(Data Transfer Object)
+<ul>
+<li>데이터 구조</li>
+<li>데이터를 담는 역할</li>
+</ul>
+</li>
+<li>DAO(Data Access Object)
+<ul>
+<li>데이터를 처리하는 역할(비즈니스 로직)</li>
+<li>DB와 CRUD 하는 역할</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Inheritance</p>
+</li>
+</ul>
+<p><a name ="Database"></a></p>
+<hr>
+<h2 id="2-database">#2 Database</h2>
+<h3 id="insert--select--update--delete"><strong>INSERT / SELECT / UPDATE / DELETE</strong></h3>
+<ul>
+<li>
+<p><span style="color:orange"><strong>INSERT</strong></span></p>
+</li>
+<li>
+<p><span style="color:orange"><strong>SELECT</strong></span></p>
+<ul>
+<li>표시할 대상 열과 대상 열을 포함하는 테이블 지정</li>
+<li>기본 문법</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> * | {[<span class="hljs-keyword">DISTINCT</span>] <span class="hljs-keyword">column</span> | expression [<span class="hljs-keyword">alias</span>], ...}
+<span class="hljs-keyword">FROM</span> <span class="hljs-keyword">table</span>;
+</div></code></pre>
+<ol>
+<li>'*' : 모든 열 선택</li>
+<li>DISCTINCT : 중복되는 열 생략
+<ul>
+<li>값이 같은 열을 생략한다.</li>
+</ul>
+</li>
+<li>column | expression : 지정한 열 또는 표현식</li>
+<li>alias : 선택된 열에 다른 머리글 이름 지정</li>
+</ol>
+<ul>
+<li>Example</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> * // 대상 열
+<span class="hljs-keyword">FROM</span> <span class="hljs-keyword">table</span>; // 대상 열이 포함된 테이블
+</div></code></pre>
+<ol>
+<li>table로 부터 모든 열을 선택</li>
+</ol>
+</li>
+<li>
+<p>ORDER BY - 정렬</p>
+</li>
+<li>
+<p>WHERE - 조건 : 선택되는 행 제한</p>
+<ul>
+<li>기본 문법</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> * | {[<span class="hljs-keyword">DISTINCT</span>] <span class="hljs-keyword">column</span> | expression [<span class="hljs-keyword">alias</span>], ...}
+<span class="hljs-keyword">FROM</span> <span class="hljs-keyword">table</span>;
+[WHERE condition(s)];
+</div></code></pre>
+<ol>
+<li>WHERE : 조건에 맞는 행만 오도록 제한</li>
+<li>condition : 열 이름, 표현식, 상수 및 비교 연산자로 구성</li>
+</ol>
+<ul>
+<li>Example</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> employee_id, last_name, job_id, department_id
+<span class="hljs-keyword">FROM</span> employees
+<span class="hljs-keyword">WHERE</span> department_id = <span class="hljs-number">90</span>;
+</div></code></pre>
+<ol>
+<li>조건 : department_id 열의 값이 90 인 경우</li>
+<li>테이블 : employees로 부터</li>
+<li>선택열 : employee_id, last_name, job_id, department_id의 값을 가져와라</li>
+</ol>
+</li>
+<li>
+<p>2개 이상의 table이 필요할 때</p>
+<ul>
+<li>UPDATE</li>
+<li>DELETE</li>
+</ul>
+</li>
+<li>
+<p>SUM / MAX / MIN</p>
+<ul>
+<li>SUM</li>
+<li>MAX</li>
+<li>MIN</li>
+</ul>
+</li>
+<li>
+<p>GROUP BY</p>
+</li>
+<li>
+<p>IS NULL</p>
+</li>
+<li>
+<p>JOIN</p>
+</li>
+<li>
+<p>String / Date</p>
+</li>
+</ul>
+<hr>
+<h2 id="a-name%22web%223-weba"><a name="Web">#3 Web</a></h2>
+<h3 id="html"><strong>HTML</strong></h3>
+<h3 id="%22%22css%22%22">&quot;&quot;CSS&quot;&quot;</h3>
+<h3 id="%22%22javascript%22%22">&quot;&quot;JavaScript&quot;&quot;</h3>
+<ul>
+<li>
+<p><span style="color:red"><strong>출력(Output)</strong></span></p>
+<ul>
+<li>
+<p>데이터를 화면에 출력하는 방법</p>
+<ol>
+<li>
+<p>innerHTML</p>
+<ul>
+<li>
+<p>document.getElementById() 이용</p>
+</li>
+<li>
+<p>해당 id값을 갖는 HTML 태그에 원하는 값을 넣는다.</p>
+</li>
+<li>
+<p>example</p>
+<pre class="hljs"><code><div>
+&lt;p id=<span class="hljs-string">"demo"</span>&gt;&lt;<span class="hljs-regexp">/p&gt;
+
+&lt;script&gt;
+document.getElementById("demo").innerHTML = "hi";
+&lt;/</span>script&gt;
+</div></code></pre>
+<ol>
+<li>&quot;demo&quot;라는 id 값을 갖는 p 태그에 &quot;hi&quot;라는 값을 넣어서 출력</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>document.write()</p>
+</li>
+<li>
+<p>window.alert()</p>
+</li>
+<li>
+<p>console.log()</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="a-name%22spring%224-spring-frameworka"><a name="Spring">#4 Spring Framework</a></h2>
+<h3 id="d"><strong>d</strong></h3>
+<ul>
+<li><span style="color:blue"><strong>d</strong></span></li>
+</ul>
+<hr>
+<h2 id="a-name%22network%225-networka"><a name="Network">#5 Network</a></h2>
+<h3 id="ip"><strong>IP</strong></h3>
+<ul>
+<li><span style="color:green"><strong>인터넷 프로토콜의 역할</strong></span>
+<ul>
+<li>패킷이라는 통신 단위로 지정한 IP주소에 데이터 전달</li>
+<li>IP 패킷 정보
+<ul>
+<li>출발지IP, 목적지IP, ...</li>
+<li>클라이언트와 서버가 서로 패킷 정보를 보낸다</li>
+</ul>
+</li>
+<li>IP 프로토콜의 한계
+<ul>
+<li>비연결성
+<ul>
+<li>패킷을 받을 대상이 없거나 서비스 불능 상태여도 패킷 전송 -&gt; <u>패킷 소실</u></li>
+</ul>
+</li>
+<li>비신뢰성
+<ul>
+<li>중간에 패킷이 사라지는 경우</li>
+<li>패킷이 순서대로 안오는 경우
+<ul>
+<li>
+<ol>
+<li>Hello 2. World로 전송 -&gt; 1. World 2. Hellow로 전송 받음</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>프로그램 구분
+<ul>
+<li>같은 IP를 사용하는 서버에서 통신하는 애플리케이션이 둘 이상인 경우</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span style="color:green"><strong>TCP &amp; UDP</strong></span>
+<ul>
+<li>IP 스택의 4계층
+<ul>
+<li>HTTP, FTP : 애플리케이션 계층
+<ul>
+<li>웹 브라우저, 네트워크 게임</li>
+<li>SOCKET 라이브러리</li>
+</ul>
+</li>
+<li>TCP, UDP : 전송 계층</li>
+<li>IP : 인터넷 계층</li>
+<li>네트워크 인터페이스 계층
+<ul>
+<li>LAN 드라이버, LAN 장비</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>데이터 전송 프로세스
+<ol>
+<li>프로그램이 Hello, world! 메시지 생성</li>
+<li>SOCKET 라이브러리를 통해 전송 계층으로 전달</li>
+<li>TCP 정보생성, 메시지 데이터 포함</li>
+<li>IP 패킷 생성, TCP 데이터 포함</li>
+<li>LAN 카드 -&gt; 인터넷 -&gt; 서버</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>

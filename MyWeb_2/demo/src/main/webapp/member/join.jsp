@@ -64,8 +64,9 @@
 	</div>
 </div>
 <!-- footer -->
+<div>
 <footer include-html="/html/footer.html"></footer>
-
+</div>
 <script>
 includeHTML();
 </script>
