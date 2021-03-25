@@ -10,7 +10,10 @@ ___
 - Java
 - Web : HTML, CSS, JavaScript
 - DB : MySQL
-- 
+
+___
+### 프로젝트 문서
+- <a href="https://github.com/eful5678/MyWeb/blob/main/Description.md">Design Description</a>
 ### 현재 구현된 기능
 - 로그인 및 회원가입
   - MySQL를 이용하여 회원정보 저장
