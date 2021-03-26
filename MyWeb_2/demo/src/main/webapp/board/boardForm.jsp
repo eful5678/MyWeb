@@ -38,6 +38,7 @@
 			<label for="content" class="form-lable">내용</label>
 			<textarea class="form-control" name="content" rows="20"></textarea>
 		</div>
+		<div><input type="hidden" name="viewCNT" value=0></div>
 		<div>
 			<button id="write" class="btn-danger" onclick="write()">글쓰기</button>
 		</div>

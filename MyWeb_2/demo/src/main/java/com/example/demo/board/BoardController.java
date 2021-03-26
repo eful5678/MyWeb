@@ -23,7 +23,7 @@ public class BoardController {
 	@PostMapping("/board/board")
 	public String board(Board b) {
 		bservice.writeBoard(b);
-		return "/board/boardList";
+		return "redirect:/board/boardList";
 	}
 	
 	@GetMapping("/board/boardList")

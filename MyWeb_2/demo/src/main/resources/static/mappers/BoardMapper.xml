@@ -10,7 +10,7 @@
 	</resultMap>
 	
 	<insert id="writeBoard" parameterType="com.example.demo.board.Board">
-		INSERT INTO my_board VALUES(#{b_num}, #{m_id}, #{title}, #{content})
+		INSERT INTO my_board VALUES(#{b_num}, #{m_id}, #{title}, #{content}, 0)
 	</insert>
 	
 	<select id="selectAll" resultMap="board" parameterType="int">
