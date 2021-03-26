@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.reply.ReplyMapper">
-	<resultMap type="com.example.demo.reply.ReplyMapper" id="reply">
-		<result property="m_id" column="m_id"/>
+	<resultMap type="com.example.demo.reply.Reply" id="reply">
 		<result property="b_num" column="b_num"/>
-		<result property="re_contet" column="re_content"/>
+		<result property="rep_content" column="rep_content"/>
+		<result property="m_id" column="m_id"/>
 	</resultMap>
 	
+	<insert id="writeReply" parameterType="com.example.demo.reply.Reply">
+		INSERT INTO my_reply VALUES(#{b_num}, #{rep_content}, #{id})
+	</insert>
+	
+	<select id="SelectByBnum" resultMap="reply" parameterType="int">
+		SELECT * FROM my_reply WHERE b_num=#{b_num}
+	</select>
+	
+	<select id="selectAll" resultMap="reply" parameterType="int">
+		SELECT * FROM my_reply
+	</select>
 </mapper>

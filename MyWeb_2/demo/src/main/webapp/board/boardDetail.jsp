@@ -36,12 +36,22 @@
 		</div>
 		<div class="col-md-12">
 			<label for="reply" class="form-label">댓글</label>
- 			<textarea class="form-control" name="reply" id="reply" cols="120"></textarea>
+		
+			<span id="rep_id">${sessionScope.id }님</span>
+ 			<textarea class="form-control" name="rep_content" id="reply" cols="120"></textarea>
+ 				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+ 					<input type="button" class="btn-danger" value="등록" onclick="b_reply()">
+ 				</div>
+ 		<div id="repList" class="col-md-12">
+ 			<div>
+ 				<c:import url="/reply/replyList?b_num=${b.b_num }"></c:import>
+ 			</div>
 		</div>
     </div>
 </div>
 <input id="sessionId" type="hidden" value="${sessionScope.id }">
 <input id="writer" type="hidden" value="${b.m_id }">
+<input id="rep_b_num" type="hidden" value="${b.b_num }">
 <!-- footer -->
 <footer include-html="/html/footer.html"></footer>
 

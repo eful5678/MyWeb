@@ -193,6 +193,25 @@ function editBoard(){
 	editBoard.submit();
 }
 
+function b_reply(){
+	var rep_content = document.getElementById("reply");
+	var rep_b_num = document.getElementById("rep_b_num");
+	console.log("댓글 글 번호 : " + rep_b_num.value);
+	console.log("댓글 내용 : " + rep_content.value);
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(xhttp.readyState == 4 && xhttp.status === 200){
+			console.log(xhttp.responseText);
+			alert("댓글 등록 성공");
+			location.href="/board/boardDetail?b_num=" + rep_b_num.value;
+			
+		}
+	}
+	xhttp.open("POST", "/reply/writeReply?b_num=" + rep_b_num.value + "&rep_content=" + rep_content.value ,true);
+	xhttp.send();
+	
+}
+
 
 var clockContainer = document.querySelector(".js-clock");
 var clockTitle = clockContainer.querySelector("h1");
